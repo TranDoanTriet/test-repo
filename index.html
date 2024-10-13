@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XML Validator</title>
+  <!-- Include the fast-xml-parser library from CDNJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/4.0.11/parser.min.js"></script>
+  <script>
+    async function loadFile(filePath) {
+      const response = await fetch(filePath);
+      return response.text();
+    }
+
+    async function validateXML() {
+      const xmlString = await loadFile('student.xml');
+      const xsdString = await loadFile('student.xsd');
+
+      // Parse the XML and XSD strings
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+      const xsdDoc = parser.parseFromString(xsdString, "application/xml");
+
+      // Validate the XML against the XSD
+      const result = validateXMLWithXSD(xmlDoc, xsdDoc);
+
+      if (result) {
+        alert("bạn có lỗi: " + result);
+      } else {
+        alert("bình thường");
+      }
+    }
+
+    function validateXMLWithXSD(xmlDoc, xsdDoc) {
+      // Implement the validation logic here
+      // This is a placeholder function
+      // You need to use a library or write custom logic to validate XML against XSD
+      return null; // Return null if no errors, otherwise return error message
+    }
+  </script>
+</head>
+<body>
+  <button onclick="validateXML()">Check Validate</button>
+</body>
+</html>

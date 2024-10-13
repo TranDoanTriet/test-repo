@@ -1,0 +1,14 @@
+<xsd:element name ="CAT">
+    <xsd:complexType>
+        <xsd:sequence>
+            <xsd:element name="NAME" type="xsd:string"/>
+            <xsd:element name="BREED" type="xsd:string"/>
+            <xsd:element name="AGE" type="xsd:positiveInteger"/>
+            <xsd:element name="ALTERED" type="xsd:boolean"/>
+            <xsd:element name="DECLAMED" type="xsd:boolean"/>
+            <xsd:element name="LISENSE" type="xsd:string"/>
+            <xsd:element name="OWNER" type="xsd:string"/>
+
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:element>
